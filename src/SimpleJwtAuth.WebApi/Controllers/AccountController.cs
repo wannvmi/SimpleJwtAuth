@@ -66,11 +66,11 @@ public class AccountController : ControllerBase
         }
 
 
-        var UserId = userClaims.FirstOrDefault(x=>x.Type == "UserId")?.Value;
+        var UserId = userClaims.FirstOrDefault(x => x.Type == "UserId")?.Value;
         // ... 用户信息
 
         var token = _tokenHelper.Create(new[]
-{
+        {
             new Claim("UserId", "user.Id.ToString()"),
             new Claim(JwtClaimTypes.Name, "userName"),
             new Claim(ClaimTypes.Role, "User"),
